@@ -13,7 +13,7 @@ export default function RubyToJSON() {
       setError("");
       // Simple Ruby hash to JSON converter
       // This is a basic implementation - can be extended for more complex cases
-      let processed = rubyInput
+      const processed = rubyInput
         // Convert Ruby symbols to strings
         .replace(/:(\w+)\s*=>/g, '"$1":')
         // Convert => to :
