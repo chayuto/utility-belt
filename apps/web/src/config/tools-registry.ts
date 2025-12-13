@@ -30,4 +30,11 @@ export const toolsRegistry: Tool[] = [
     icon: "Languages",
     component: lazy(() => import("../tools/ThaiModifier")),
   },
+  {
+    slug: "thai-obfuscator",
+    name: "Thai Text Obfuscator",
+    description: "Transform Thai text into machine-unreadable variants",
+    icon: "Shield",
+    component: lazy(() => import("../tools/ThaiObfuscator")),
+  },
 ];
