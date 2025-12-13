@@ -47,14 +47,14 @@ export default function RubyToJSON() {
 
   // Debounced parsing
   useEffect(() => {
-    if (!input.trim()) {
-      setOutput('');
-      setError(null);
-      setIsValid(true);
-      return;
-    }
-
     const timer = setTimeout(() => {
+      if (!input.trim()) {
+        setOutput('');
+        setError(null);
+        setIsValid(true);
+        return;
+      }
+
       try {
         const json = toJSON(input, options);
         setOutput(json);
