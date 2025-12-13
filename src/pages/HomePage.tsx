@@ -22,7 +22,12 @@ export function HomePage() {
   // Keyboard shortcut: press "/" to focus search
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "/" && document.activeElement?.tagName !== "INPUT" && document.activeElement?.tagName !== "TEXTAREA") {
+      const target = e.target as HTMLElement;
+      const isInputField = target.tagName === "INPUT" || 
+                           target.tagName === "TEXTAREA" || 
+                           target.isContentEditable;
+      
+      if (e.key === "/" && !isInputField) {
         e.preventDefault();
         searchInputRef.current?.focus();
       }
