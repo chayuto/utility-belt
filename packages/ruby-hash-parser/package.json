@@ -1,0 +1,43 @@
+{
+    "name": "@utility-belt/ruby-hash-parser",
+    "version": "0.1.0",
+    "description": "Parse Ruby Hash inspect output to JSON",
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build:grammar": "peggy --format es -o src/parser/generated.js src/grammar/ruby-hash.peggy",
+        "build:ts": "tsup",
+        "build": "pnpm build:grammar && pnpm build:ts",
+        "dev": "tsup --watch",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "test:coverage": "vitest run --coverage",
+        "typecheck": "tsc --noEmit"
+    },
+    "devDependencies": {
+        "peggy": "^4.0.0",
+        "tsup": "^8.0.0",
+        "typescript": "~5.9.3",
+        "vitest": "^1.0.0"
+    },
+    "keywords": [
+        "ruby",
+        "hash",
+        "parser",
+        "json",
+        "peg",
+        "inspector"
+    ]
+}
