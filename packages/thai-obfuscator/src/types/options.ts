@@ -18,9 +18,11 @@ export type FontStyle =
  * Available obfuscation strategies
  */
 export type ObfuscationStrategy =
-    | 'simple'      // 1-to-1 character replacement
-    | 'composite'   // Base + combining mark replacement
-    | 'zeroWidth';  // Zero-width character injection
+    | 'simple'          // 1-to-1 character replacement
+    | 'composite'       // Base + combining mark replacement
+    | 'zeroWidth'       // Zero-width character injection
+    | 'phonetic'        // Same-sound Thai consonant substitution
+    | 'symbolInjection'; // Insert symbols between characters
 
 /**
  * Main configuration options for obfuscation
