@@ -20,9 +20,6 @@ export default function RubyToJSON() {
         .replace(/=>/g, ':')
         // Convert nil to null
         .replace(/\bnil\b/g, 'null')
-        // Convert true/false (already valid in JSON)
-        .replace(/\btrue\b/g, 'true')
-        .replace(/\bfalse\b/g, 'false')
         // Add quotes to unquoted keys
         .replace(/(\w+):/g, '"$1":');
 
