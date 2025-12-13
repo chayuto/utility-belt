@@ -1,73 +1,126 @@
-# React + TypeScript + Vite
+# Utility Belt - Developer Toolkit Monorepo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance monorepo for developer utilities, built with TypeScript, pnpm workspaces, React, and Vite.
 
-Currently, two official plugins are available:
+## 📁 Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+/ (Root)
+├── package.json            # Root package with monorepo scripts
+├── pnpm-workspace.yaml     # pnpm workspace configuration
+├── tsconfig.base.json      # Shared TypeScript configuration
+│
+├── /apps
+│   └── /web                # Main Dashboard (Vite + React + TailwindCSS)
+│       ├── package.json    # Web app dependencies
+│       ├── vite.config.ts  # Vite configuration
+│       └── /src
+│           ├── /layout     # Sidebar, Header components
+│           └── /tools      # Individual tool components
+│               ├── /RubyToJSON       # Ruby to JSON converter
+│               ├── /ThaiModifier     # Thai text modifier (uses shared library)
+│               └── /StringCaseConverter  # String case converter
+│
+└── /packages
+    └── /thai-text-modifier # Shared Library (npm-ready)
+        ├── package.json    # Package config with ESM/CJS exports
+        ├── tsup.config.ts  # Bundle configuration
+        └── /src
+            └── index.ts    # Exports Thai text utilities
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js 18+ 
+- pnpm 9+
+
+### Installation
+
+```bash
+# Install pnpm globally (if not already installed)
+npm install -g pnpm@9
+
+# Install dependencies
+pnpm install
 ```
+
+### Development
+
+```bash
+# Start the dev server
+pnpm dev
+
+# Build all packages and apps
+pnpm build
+
+# Lint all packages and apps
+pnpm lint
+
+# Format code
+pnpm format
+```
+
+## 📦 Workspaces
+
+### Apps
+
+- **@utility-belt/web**: Main web dashboard built with Vite, React, and TailwindCSS
+
+### Packages
+
+- **@my-toolkit/thai-text-modifier**: Shared library for Thai text manipulation
+  - Exports ESM and CJS formats
+  - Includes TypeScript definitions
+  - Ready for npm publishing
+
+## 🛠️ Adding New Tools
+
+1. Create a new directory under `apps/web/src/tools/YourToolName`
+2. Add your tool component as `index.tsx`
+3. Register the tool in `apps/web/src/config/tools-registry.ts`
+
+Example:
+```typescript
+{
+  slug: "your-tool",
+  name: "Your Tool Name",
+  description: "Tool description",
+  icon: "IconName", // Lucide icon name
+  component: lazy(() => import("../tools/YourToolName")),
+}
+```
+
+## 🔧 Tech Stack
+
+- **Package Manager**: pnpm (v9+ with workspaces)
+- **Web Framework**: Vite + React + TypeScript
+- **Styling**: TailwindCSS v4
+- **Library Build Tool**: tsup (ESM/CJS bundling)
+- **Icons**: Lucide React
+- **Router**: React Router DOM
+
+## 📝 Scripts Reference
+
+| Script | Description |
+|--------|-------------|
+| `pnpm dev` | Start development server for web app |
+| `pnpm build` | Build all packages and apps |
+| `pnpm lint` | Run ESLint on all packages |
+| `pnpm format` | Format code with Prettier |
+
+## 🏗️ Building for Production
+
+```bash
+# Build everything
+pnpm build
+
+# The web app will be in apps/web/dist
+# The library will be in packages/thai-text-modifier/dist
+```
+
+## 📄 License
+
+MIT
+

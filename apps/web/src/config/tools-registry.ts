@@ -16,4 +16,18 @@ export const toolsRegistry: Tool[] = [
     icon: "Type",
     component: lazy(() => import("../tools/StringCaseConverter")),
   },
+  {
+    slug: "ruby-to-json",
+    name: "Ruby to JSON",
+    description: "Convert Ruby hash syntax to valid JSON format",
+    icon: "Code2",
+    component: lazy(() => import("../tools/RubyToJSON")),
+  },
+  {
+    slug: "thai-modifier",
+    name: "Thai Text Modifier",
+    description: "Modify Thai text with various transformations",
+    icon: "Languages",
+    component: lazy(() => import("../tools/ThaiModifier")),
+  },
 ];
