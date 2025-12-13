@@ -27,3 +27,5 @@ dist-ssr
 .pnpm-store
 .pnpm-debug.log
 package-lock.json
+
+/docs/internal
