@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Monorepo specific
+.pnpm-store
+.pnpm-debug.log
+package-lock.json
