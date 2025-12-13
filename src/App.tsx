@@ -7,7 +7,7 @@ import { toolsRegistry } from "./config/tools-registry";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/utility-belt">
       <Routes>
         <Route path="/" element={<DashboardLayout />}>
           <Route index element={<HomePage />} />
