@@ -2,7 +2,69 @@
 
 A high-performance monorepo for developer utilities, built with TypeScript, pnpm workspaces, React, and Vite.
 
-## 📁 Project Structure
+## Packages
+
+### [@utility-belt/ruby-hash-parser](./packages/ruby-hash-parser)
+
+Industrial-grade TypeScript parser for Ruby Hash `inspect` output.
+
+- Full Ruby Hash syntax support (1.8 - 3.x)
+- Hash rocket (`=>`) and JSON-style (`:`) syntax
+- All escape sequences and numeric formats
+- Range literals, cyclic references, trailing commas
+- Configurable presets (strict, preserving, json5, lenient, pedantic)
+- 171 comprehensive tests
+
+```typescript
+import { parse, toJSON, presets } from '@utility-belt/ruby-hash-parser';
+
+parse('{:name => "Alice", age: 30}');
+// => { name: "Alice", age: 30 }
+```
+
+---
+
+### [@utility-belt/thai-obfuscator](./packages/thai-obfuscator)
+
+Thai text obfuscation library with multiple strategies for anti-scraping and text protection.
+
+- Multiple obfuscation strategies (homoglyph, zero-width, composite)
+- Analysis and deobfuscation utilities
+- Debug tools for examining obfuscated text
+
+```typescript
+import { obfuscate, analyze, deobfuscate } from '@utility-belt/thai-obfuscator';
+
+const result = obfuscate('สวัสดี');
+const analysis = analyze(result.text);
+```
+
+---
+
+### [@my-toolkit/thai-text-modifier](./packages/thai-text-modifier)
+
+Shared library for Thai text manipulation utilities.
+
+- ESM and CJS exports
+- TypeScript definitions
+- Ready for npm publishing
+
+---
+
+## Web App
+
+### [@utility-belt/web](./apps/web)
+
+Main dashboard built with Vite, React, and TailwindCSS.
+
+**Available Tools:**
+- **Ruby to JSON Converter** - Parse Ruby hash syntax to JSON with real-time parsing
+- **Thai Text Modifier** - Thai text manipulation tools
+- **String Case Converter** - Convert between different string cases
+
+---
+
+## Project Structure
 
 ```text
 / (Root)
@@ -12,24 +74,15 @@ A high-performance monorepo for developer utilities, built with TypeScript, pnpm
 │
 ├── /apps
 │   └── /web                # Main Dashboard (Vite + React + TailwindCSS)
-│       ├── package.json    # Web app dependencies
-│       ├── vite.config.ts  # Vite configuration
-│       └── /src
-│           ├── /layout     # Sidebar, Header components
-│           └── /tools      # Individual tool components
-│               ├── /RubyToJSON       # Ruby to JSON converter
-│               ├── /ThaiModifier     # Thai text modifier (uses shared library)
-│               └── /StringCaseConverter  # String case converter
+│       └── /src/tools      # Individual tool components
 │
 └── /packages
-    └── /thai-text-modifier # Shared Library (npm-ready)
-        ├── package.json    # Package config with ESM/CJS exports
-        ├── tsup.config.ts  # Bundle configuration
-        └── /src
-            └── index.ts    # Exports Thai text utilities
+    ├── /ruby-hash-parser   # Ruby Hash → JSON parser (PEG-based)
+    ├── /thai-obfuscator    # Thai text obfuscation library
+    └── /thai-text-modifier # Thai text utilities
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -55,72 +108,38 @@ pnpm dev
 # Build all packages and apps
 pnpm build
 
-# Lint all packages and apps
-pnpm lint
+# Run all tests
+pnpm test
 
-# Format code
-pnpm format
+# Type check all packages
+pnpm typecheck
 ```
 
-## 📦 Workspaces
-
-### Apps
-
-- **@utility-belt/web**: Main web dashboard built with Vite, React, and TailwindCSS
-
-### Packages
-
-- **@my-toolkit/thai-text-modifier**: Shared library for Thai text manipulation
-  - Exports ESM and CJS formats
-  - Includes TypeScript definitions
-  - Ready for npm publishing
-
-## 🛠️ Adding New Tools
-
-1. Create a new directory under `apps/web/src/tools/YourToolName`
-2. Add your tool component as `index.tsx`
-3. Register the tool in `apps/web/src/config/tools-registry.ts`
-
-Example:
-```typescript
-{
-  slug: "your-tool",
-  name: "Your Tool Name",
-  description: "Tool description",
-  icon: "IconName", // Lucide icon name
-  component: lazy(() => import("../tools/YourToolName")),
-}
-```
-
-## 🔧 Tech Stack
-
-- **Package Manager**: pnpm (v9+ with workspaces)
-- **Web Framework**: Vite + React + TypeScript
-- **Styling**: TailwindCSS v4
-- **Library Build Tool**: tsup (ESM/CJS bundling)
-- **Icons**: Lucide React
-- **Router**: React Router DOM
-
-## 📝 Scripts Reference
+## Scripts Reference
 
 | Script | Description |
 |--------|-------------|
 | `pnpm dev` | Start development server for web app |
 | `pnpm build` | Build all packages and apps |
+| `pnpm test` | Run tests across all packages |
 | `pnpm lint` | Run ESLint on all packages |
-| `pnpm format` | Format code with Prettier |
 
-## 🏗️ Building for Production
+## Adding New Tools
 
-```bash
-# Build everything
-pnpm build
+1. Create a new directory under `apps/web/src/tools/YourToolName`
+2. Add your tool component as `index.tsx`
+3. Register the tool in `apps/web/src/config/tools-registry.ts`
 
-# The web app will be in apps/web/dist
-# The library will be in packages/thai-text-modifier/dist
-```
+## Tech Stack
 
-## 📄 License
+- **Package Manager**: pnpm (v9+ with workspaces)
+- **Web Framework**: Vite + React + TypeScript
+- **Styling**: TailwindCSS v4
+- **Library Build Tool**: tsup (ESM/CJS bundling)
+- **Parser Generator**: Peggy (PEG.js successor)
+- **Testing**: Vitest
+- **Icons**: Lucide React
+
+## License
 
 MIT
-
