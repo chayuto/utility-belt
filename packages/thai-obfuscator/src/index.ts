@@ -69,3 +69,12 @@ export type { ObfuscationDiff } from './utils/deobfuscate';
 
 // Low-level access (advanced users)
 export { getMapping, getBestReplacement, getRandomReplacement, HOMOGLYPH_MAP } from './maps';
+
+// Normalization/detection (for testing and cleanup)
+export {
+    normalizeThaiObfuscation,
+    stripZeroWidth,
+    detectObfuscation,
+    REVERSE_HOMOGLYPH_MAP
+} from './utils/normalize';
+export type { NormalizeOptions } from './utils/normalize';

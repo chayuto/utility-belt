@@ -68,6 +68,33 @@ export const presets = {
         minConfidence: 0.8,
         injectZeroWidth: false,
     } as Partial<ObfuscationOptions>,
+
+    /**
+     * Native Thai - uses phonetic substitution only
+     * Use for: Evading Thai-only NLP without Latin mixing
+     * Text remains 100% Thai, just with different consonants that sound the same
+     */
+    nativeThai: {
+        density: 0.6,
+        strategies: ['phonetic', 'zeroWidth'],
+        toneStrategy: 'retain',
+        fontStyle: 'any',
+        minConfidence: 0,
+        injectZeroWidth: true,
+    } as Partial<ObfuscationOptions>,
+
+    /**
+     * Anti-regex - optimized for breaking pattern matching
+     * Use for: Defeating exact-match keyword filters
+     */
+    antiRegex: {
+        density: 1.0,
+        strategies: ['simple', 'zeroWidth'],
+        toneStrategy: 'latin',
+        fontStyle: 'loopless',
+        minConfidence: 0.5,
+        injectZeroWidth: true,
+    } as Partial<ObfuscationOptions>,
 } as const;
 
 export type PresetName = keyof typeof presets;

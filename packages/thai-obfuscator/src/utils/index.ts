@@ -9,3 +9,10 @@ export {
 } from './fonts';
 export { analyzeText, estimateThreatResistance, type TextAnalysis } from './analysis';
 export { attemptDeobfuscation, generateDiff, formatDiff, type ObfuscationDiff } from './deobfuscate';
+export {
+    normalizeThaiObfuscation,
+    stripZeroWidth,
+    detectObfuscation,
+    REVERSE_HOMOGLYPH_MAP,
+    type NormalizeOptions
+} from './normalize';

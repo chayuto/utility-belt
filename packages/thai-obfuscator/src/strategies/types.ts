@@ -12,7 +12,7 @@ export interface StrategyResult {
     wasObfuscated: boolean;
 
     /** Strategy that was used */
-    strategy: 'simple' | 'composite' | 'zeroWidth' | 'none';
+    strategy: 'simple' | 'composite' | 'zeroWidth' | 'phonetic' | 'symbolInjection' | 'none';
 
     /** Confidence of the transformation */
     confidence: number;

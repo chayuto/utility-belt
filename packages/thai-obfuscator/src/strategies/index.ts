@@ -4,6 +4,8 @@ import type { StrategyResult, ObfuscationStrategyFn } from './types';
 import { simpleStrategy } from './simple';
 import { compositeStrategy } from './composite';
 import { zeroWidthStrategy } from './zero-width';
+import { phoneticStrategy } from './phonetic';
+import { symbolInjectionStrategy } from './symbol-injection';
 
 /**
  * Strategy registry
@@ -12,6 +14,8 @@ const STRATEGIES: Record<string, ObfuscationStrategyFn> = {
     simple: simpleStrategy,
     composite: compositeStrategy,
     zeroWidth: zeroWidthStrategy,
+    phonetic: phoneticStrategy,
+    symbolInjection: symbolInjectionStrategy,
 };
 
 /**
@@ -93,5 +97,5 @@ export function applyStrategy(
     };
 }
 
-export { simpleStrategy, compositeStrategy, zeroWidthStrategy };
+export { simpleStrategy, compositeStrategy, zeroWidthStrategy, phoneticStrategy, symbolInjectionStrategy };
 export type { StrategyResult, ObfuscationStrategyFn };

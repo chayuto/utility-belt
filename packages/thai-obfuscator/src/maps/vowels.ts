@@ -10,11 +10,14 @@ export const VOWEL_MAPPINGS: [string, CharacterMapping][] = [
             { replacement: 'b', confidence: 0.80, level: 'high', bestFontStyle: 'loopless' },
             { replacement: '6', confidence: 0.70, level: 'medium', bestFontStyle: 'any' },
             { replacement: 'l', confidence: 0.75, level: 'medium', bestFontStyle: 'loopless' },
+            { replacement: 'I', confidence: 0.80, level: 'high', bestFontStyle: 'loopless' },
+            { replacement: '|', confidence: 0.75, level: 'medium', bestFontStyle: 'any' },
         ]
     }],
     ['แ', {
         thai: 'แ', codePoint: 0x0E41, name: 'Sara Ae', isCombining: false, replacements: [
             { replacement: 'll', confidence: 0.85, level: 'high', bestFontStyle: 'loopless', notes: '1-to-2 mapping' },
+            { replacement: 'II', confidence: 0.80, level: 'high', bestFontStyle: 'loopless', notes: '1-to-2 mapping' },
         ]
     }],
     ['โ', {

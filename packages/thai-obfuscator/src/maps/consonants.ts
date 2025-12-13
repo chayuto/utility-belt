@@ -123,6 +123,7 @@ export const CONSONANT_MAPPINGS: [string, CharacterMapping][] = [
     ['ป', {
         thai: 'ป', codePoint: 0x0E1B, name: 'Po Pla', isCombining: false, replacements: [
             { replacement: 'U', confidence: 0.75, level: 'medium', bestFontStyle: 'loopless' },
+            { replacement: 'J', confidence: 0.70, level: 'medium', bestFontStyle: 'loopless', notes: 'Reversed J visual' },
         ]
     }],
     ['ผ', { thai: 'ผ', codePoint: 0x0E1C, name: 'Pho Phung', isCombining: false, replacements: [] }],
@@ -161,6 +162,7 @@ export const CONSONANT_MAPPINGS: [string, CharacterMapping][] = [
     ['ล', {
         thai: 'ล', codePoint: 0x0E25, name: 'Lo Ling', isCombining: false, replacements: [
             { replacement: 'a', confidence: 0.75, level: 'medium', bestFontStyle: 'loopless' },
+            { replacement: 'C', confidence: 0.70, level: 'medium', bestFontStyle: 'loopless', notes: 'Open C shape' },
         ]
     }],
     ['ฦ', { thai: 'ฦ', codePoint: 0x0E26, name: 'Lu', isCombining: false, replacements: [] }],
