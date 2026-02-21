@@ -1,0 +1,104 @@
+# Utility Belt — Developer Toolkit
+
+> A free, open-source collection of developer utility tools. Built as a TypeScript monorepo with React, Vite, and TailwindCSS. All processing happens client-side in the browser — no data is sent to any server.
+
+Source code: https://github.com/chayuto/utility-belt
+License: MIT
+
+## Tools
+
+### String Case Converter
+
+Path: /tools/string-case-converter
+
+Convert text between different case formats instantly. Supported conversions:
+
+- UPPERCASE
+- lowercase
+- Title Case
+- Sentence case
+- camelCase
+- snake_case
+- kebab-case
+
+Usage: Enter text in the input field and all conversions are displayed simultaneously. Click the copy button next to any conversion to copy it to the clipboard.
+
+### Ruby to JSON Converter
+
+Path: /tools/ruby-to-json
+
+Convert Ruby hash syntax to valid JSON format with real-time parsing and error feedback. Built on the @utility-belt/ruby-hash-parser package (PEG-based parser).
+
+Features:
+
+- Full Ruby Hash syntax support (versions 1.8 through 3.x)
+- Hash rocket (`=>`) and JSON-style (`:`) syntax
+- All escape sequences and numeric formats
+- Range literals, cyclic references, trailing commas
+- Configurable parser presets: Strict JSON, Preserving, JSON5, Lenient, Pedantic
+- Customizable options for handling Infinity/NaN, range objects, and cyclic references
+- Live validation indicator and detailed parse error display with source context
+
+### Thai Text Modifier
+
+Path: /tools/thai-modifier
+
+Modify Thai text with various transformations. Built on the @my-toolkit/thai-text-modifier package.
+
+Available transformations:
+
+- Remove Tone Marks: Strip Thai tone marks from text
+- Remove Vowels: Strip Thai vowels from text
+- Thai to Arabic Numerals: Convert Thai numerals (๐-๙) to Arabic numerals (0-9)
+- Arabic to Thai Numerals: Convert Arabic numerals (0-9) to Thai numerals (๐-๙)
+- Add Thai-English Spaces: Automatically insert spaces between Thai and English text segments
+
+Also displays: Thai character count and whether the input contains Thai characters.
+
+### Thai Text Obfuscator
+
+Path: /tools/thai-obfuscator
+
+Transform Thai text into visually identical but machine-unreadable variants. Built on the @utility-belt/thai-obfuscator package. Useful for anti-scraping and text protection.
+
+Obfuscation strategies:
+
+- Simple Homoglyph: Replace Thai characters with look-alike Latin letters
+- Composite Cluster: Handle complex Thai character clusters (consonant + vowel + tone)
+- Phonetic Swap: Replace with same-sound Thai consonants (e.g., ส↔ศ↔ษ, ท↔ฑ↔ฒ)
+- Zero-Width Injection: Insert invisible characters to break text matching
+
+Presets:
+
+- Safe: Zero-width only — looks 100% identical to original
+- Native Thai: Phonetic swap — 100% Thai characters, same pronunciation
+- Balanced: Mix of techniques — good protection level
+- Maximum: All strategies enabled — maximum protection
+- Custom: Choose your own strategies and density
+
+Output options: Copy as plain text, HTML (with aria-label for accessibility), or CSS.
+
+## Packages (npm Libraries)
+
+### @utility-belt/ruby-hash-parser
+
+Industrial-grade TypeScript parser for Ruby Hash `inspect` output. PEG-based with 171 comprehensive tests.
+
+### @utility-belt/thai-obfuscator
+
+Thai text obfuscation library with multiple strategies for anti-scraping and text protection.
+
+### @my-toolkit/thai-text-modifier
+
+Shared library for Thai text manipulation utilities. ESM and CJS exports with TypeScript definitions.
+
+## Tech Stack
+
+- Package Manager: pnpm (workspaces)
+- Frontend: Vite + React + TypeScript
+- Styling: TailwindCSS v4
+- Library Build: tsup (ESM/CJS)
+- Parser Generator: Peggy
+- Testing: Vitest
+- Icons: Lucide React
+- Deployment: GitHub Pages
