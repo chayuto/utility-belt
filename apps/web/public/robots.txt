@@ -1,0 +1,11 @@
+# Utility Belt - Developer Toolkit
+# https://chayuto.github.io/utility-belt/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://chayuto.github.io/utility-belt/sitemap.xml
+
+# LLM-friendly description
+# See https://llmstxt.org/ for the llms.txt standard
