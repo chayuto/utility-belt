@@ -1,5 +1,5 @@
 ---
-description: Documentation and code style guidelines for this repository
+description: Documentation, code style, and development workflow guidelines for this repository
 ---
 
 # Style Guidelines
@@ -13,13 +13,21 @@ description: Documentation and code style guidelines for this repository
 
 ## Code Style
 
-- Use TypeScript for all source files
+- Use TypeScript strict mode for all source files
 - Follow existing patterns in the codebase
 - Include JSDoc comments for public APIs
 - Write descriptive test names
+- Export public API only from `src/index.ts` in each package
 
 ## Commit Messages
 
-- Use conventional commit format when applicable
+- Use conventional commit format when applicable (e.g., `feat:`, `fix:`, `chore:`, `docs:`)
 - Keep messages clear and descriptive
 - Do not use emojis in commit messages
+
+## Validation Workflow
+
+- Always run `pnpm install` before building, testing, or linting
+- Run `pnpm run lint` and `pnpm run build` to verify changes pass CI checks
+- Run `pnpm --recursive run test` to verify all tests pass (206 tests across 2 packages)
+- For package-scoped work, use `pnpm --filter <package-name> run test` to run targeted tests
