@@ -4,11 +4,11 @@
 
 ## Tools
 
-- [String Case Converter](/tools/string-case-converter): Convert text between uppercase, lowercase, camelCase, snake_case, kebab-case, Title Case, and Sentence case.
-- [Ruby to JSON Converter](/tools/ruby-to-json): Convert Ruby hash syntax (including hash rockets, symbols, and nested structures) to valid JSON format. Supports multiple parser presets.
-- [Thai Text Modifier](/tools/thai-modifier): Modify Thai text with transformations including tone mark removal, vowel removal, Thai/Arabic numeral conversion, and Thai-English spacing.
-- [Thai Text Obfuscator](/tools/thai-obfuscator): Transform Thai text into visually identical but machine-unreadable variants using homoglyph, zero-width, composite, and phonetic strategies.
+- [String Case Converter](https://chayuto.github.io/utility-belt/tools/string-case-converter): Convert text between uppercase, lowercase, camelCase, snake_case, kebab-case, Title Case, and Sentence case.
+- [Ruby to JSON Converter](https://chayuto.github.io/utility-belt/tools/ruby-to-json): Convert Ruby hash syntax (including hash rockets, symbols, and nested structures) to valid JSON format. Supports multiple parser presets.
+- [Thai Text Modifier](https://chayuto.github.io/utility-belt/tools/thai-modifier): Modify Thai text with transformations including tone mark removal, vowel removal, Thai/Arabic numeral conversion, and Thai-English spacing.
+- [Thai Text Obfuscator](https://chayuto.github.io/utility-belt/tools/thai-obfuscator): Transform Thai text into visually identical but machine-unreadable variants using homoglyph, zero-width, composite, and phonetic strategies.
 
 ## Optional
 
-- [Full documentation](llms-full.txt)
+- [Full documentation](https://chayuto.github.io/utility-belt/llms-full.txt)
