@@ -94,7 +94,7 @@ Shared library for Thai text manipulation utilities. ESM and CJS exports with Ty
 
 ## Tech Stack
 
-- Package Manager: pnpm (workspaces)
+- Package Manager: pnpm 10 (workspaces)
 - Frontend: Vite + React + TypeScript
 - Styling: TailwindCSS v4
 - Library Build: tsup (ESM/CJS)

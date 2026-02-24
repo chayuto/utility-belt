@@ -42,7 +42,7 @@ TypeScript monorepo of developer utilities using pnpm workspaces. Contains share
 ## Prerequisites
 
 - Node.js 20+
-- pnpm 9+ (install with `npm install -g pnpm@9`)
+- pnpm 10+ (version managed via `packageManager` field in root `package.json`)
 
 ## Build, Test, and Lint Commands
 
@@ -78,7 +78,7 @@ pnpm --filter @utility-belt/thai-obfuscator run test
 pnpm run lint
 ```
 
-Only `apps/web` has a lint script (ESLint 9 flat config with TypeScript and React plugins). The root `pnpm run lint` delegates to all workspaces that define a `lint` script.
+Only `apps/web` has a lint script (ESLint 10 flat config with TypeScript and React plugins). The root `pnpm run lint` delegates to all workspaces that define a `lint` script.
 
 ### Dev server
 

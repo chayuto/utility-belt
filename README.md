@@ -87,13 +87,13 @@ Main dashboard built with Vite, React, and TailwindCSS.
 ### Prerequisites
 
 - Node.js 18+ 
-- pnpm 9+
+- pnpm 10+
 
 ### Installation
 
 ```bash
 # Install pnpm globally (if not already installed)
-npm install -g pnpm@9
+npm install -g pnpm@10
 
 # Install dependencies
 pnpm install
@@ -132,7 +132,7 @@ pnpm typecheck
 
 ## Tech Stack
 
-- **Package Manager**: pnpm (v9+ with workspaces)
+- **Package Manager**: pnpm (v10+ with workspaces)
 - **Web Framework**: Vite + React + TypeScript
 - **Styling**: TailwindCSS v4
 - **Library Build Tool**: tsup (ESM/CJS bundling)
